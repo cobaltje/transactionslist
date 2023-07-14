@@ -1,5 +1,4 @@
 export default function TransactionList({ transactions, categories }) {
-  console.log(categories);
   const categoriesList = [...categories];
   return (
     <table>
@@ -38,7 +37,6 @@ function Transaction({
   categories,
 }) {
   const currentCategory = categories.find((cat) => cat.id === category);
-  console.log(currentCategory);
 
   return (
     <tr>

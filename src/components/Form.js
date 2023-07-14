@@ -17,7 +17,7 @@ export default function Form({ onNewTransaction, categories }) {
   const [type, setType] = useState("expense");
   const [description, setDescription] = useState("");
   const [amount, setAmount] = useState(0);
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState(1);
 
   function handleFormReset() {
     setStartDate(new Date());
@@ -30,9 +30,9 @@ export default function Form({ onNewTransaction, categories }) {
     <div>
       <form
         className="form"
-        onSubmit={(e) =>
-          onNewTransaction(e, startDate, description, type, amount)
-        }
+        onSubmit={(e) => {
+          onNewTransaction(e, startDate, description, type, category, amount);
+        }}
         onReset={handleFormReset}
       >
         <span>
@@ -70,11 +70,11 @@ export default function Form({ onNewTransaction, categories }) {
             <FontAwesomeIcon icon={faList} /> Category:
           </label>
           <select
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
+            value={category.id}
+            onChange={(e) => setCategory(Number(e.target.value))}
           >
             {categories.map((category) => (
-              <option value={category.name} key={category.id}>
+              <option value={category.id} key={category.id}>
                 {category.name}
               </option>
             ))}

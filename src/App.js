@@ -116,9 +116,8 @@ export default function App() {
     if (button === "transactions") setShowCategories(false);
   }
 
-  function handleNewtransaction(e, date, description, type, amount) {
+  function handleNewtransaction(e, date, description, type, category, amount) {
     e.preventDefault();
-    console.log("hier");
 
     if (!date || description === "" || !amount) return;
 
@@ -128,11 +127,11 @@ export default function App() {
       date: date.toLocaleDateString("nl-BE"),
       description: description,
       type: type,
+      category: category,
       amount: amount,
     };
 
     setTransactions((transactions) => [...transactions, newTransaction]);
-    console.log([...transactions, newTransaction]);
   }
 
   function handleDeleteCategories(id) {
