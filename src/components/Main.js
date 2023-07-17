@@ -14,7 +14,7 @@ export default function Main({
   onSetShowForm,
   onAddNewCategory,
 }) {
-  const [showAddCategory, setShowAddCategory] = useState(true);
+  const [showAddCategory, setShowAddCategory] = useState(false);
 
   function handleSetShowAddCategory() {
     setShowAddCategory(() => !showAddCategory);
