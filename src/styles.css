@@ -9,10 +9,6 @@ body {
   background-color: #172554;
 }
 
-h1 {
-  margin-bottom: 15px;
-}
-
 /* Login box */
 .loginbox {
   background-color: #ffffff;
@@ -121,6 +117,13 @@ menu {
   border-radius: 10px;
 }
 
+.content-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
 /* Sidebar */
 .sidebar {
   background-color: #e0f2fe;
@@ -193,6 +196,20 @@ menu {
 
 .category-actions:hover {
   cursor: pointer;
+}
+
+/* Category - Form */
+
+.category-form form {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+.category-form input {
+  margin-top: 0px;
 }
 
 /* Error */

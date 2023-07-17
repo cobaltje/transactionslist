@@ -124,6 +124,17 @@ export default function App() {
     if (button === "transactions") setShowCategories(false);
   }
 
+  function handleNewCategory(e, categoryname) {
+    e.preventDefault();
+
+    const newCategory = {
+      id: categories.length + 1,
+      name: categoryname,
+    };
+
+    setCategories((categories) => [...categories, newCategory]);
+  }
+
   function handleNewtransaction(e, date, description, type, category, amount) {
     e.preventDefault();
 
@@ -225,6 +236,8 @@ export default function App() {
             showCategories={showCategories}
             onDeleteCategories={handleDeleteCategories}
             onEditCategoryName={handleEditCategoryName}
+            onSetShowForm={handleShowForm}
+            onAddNewCategory={handleNewCategory}
           />
         </>
       )}

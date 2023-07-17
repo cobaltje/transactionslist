@@ -18,14 +18,14 @@ export default function CreateAccount({
   return (
     <div className="loginbox">
       <h1 className="logintitle">
-        <FontAwesomeIcon icon={faUserPlus} /> Create new account
+        <FontAwesomeIcon icon={faUserPlus} /> <span> Create new account</span>
       </h1>
       <form
         onSubmit={(e) => onCreateAccount(e, newLogin, newPassword, newName)}
       >
         <label>
           <FontAwesomeIcon icon={faSignature} />
-          Name
+          <span> Name</span>
           <input
             type="text"
             placeholder="Name"
@@ -37,7 +37,7 @@ export default function CreateAccount({
 
         <label>
           <FontAwesomeIcon icon={faUser} />
-          Login
+          <span> Login</span>
           <input
             type="text"
             placeholder="Login"
@@ -50,7 +50,7 @@ export default function CreateAccount({
 
         <label>
           <FontAwesomeIcon icon={faKey} />
-          Password
+          <span> Password</span>
           <input
             type="password"
             placeholder="Password"

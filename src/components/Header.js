@@ -30,21 +30,22 @@ export default function Header({
             onClick={() => onShowCategories("transactions")}
           >
             <FontAwesomeIcon icon={faList} />
-            Transactions
+            <span> Transactions</span>
           </button>
           <button
             className="btn"
             onClick={() => onShowCategories("categories")}
           >
             <FontAwesomeIcon icon={faList} />
-            Categories
+            <span> Categories</span>
           </button>
           <button className="btn" onClick={onShowForm}>
-            <FontAwesomeIcon icon={faSquarePlus} /> Add Transaction
+            <FontAwesomeIcon icon={faSquarePlus} />{" "}
+            <span> Add Transaction</span>
           </button>
           <button className="btn" onClick={onLogout}>
             <FontAwesomeIcon icon={faArrowRightFromBracket} />
-            Logout
+            <span> Logout</span>
           </button>
         </menu>
       </nav>

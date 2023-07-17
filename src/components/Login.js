@@ -10,12 +10,12 @@ export default function Login({ onLogin, onViewCreateAccount }) {
     <div className="loginbox">
       <h1 className="logintitle">
         <FontAwesomeIcon icon={faUser} />
-        <span>Login</span>
+        <span> Login</span>
       </h1>
       <form onSubmit={(e) => onLogin(e, login, password)}>
         <label>
           <FontAwesomeIcon icon={faUser} />
-          Login
+          <span> Login</span>
           <input
             type="text"
             placeholder="Login"
@@ -27,7 +27,7 @@ export default function Login({ onLogin, onViewCreateAccount }) {
 
         <label>
           <FontAwesomeIcon icon={faKey} />
-          Password
+          <span> Password</span>
           <input
             type="password"
             placeholder="Password"
