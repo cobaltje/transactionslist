@@ -30,9 +30,6 @@ export default function Main({
           </>
         )}
       </div>
-      <div className="sidebar">
-        <h1>Actions</h1>
-      </div>
     </div>
   );
 }

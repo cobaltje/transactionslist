@@ -10,9 +10,10 @@ import {
   faXmark,
   faCheck,
   faList,
+  faArrowsUpToLine,
 } from "@fortawesome/free-solid-svg-icons";
 
-export default function Form({ onNewTransaction, categories }) {
+export default function Form({ onNewTransaction, categories, onShowForm }) {
   const [startDate, setStartDate] = useState(new Date());
   const [type, setType] = useState("expense");
   const [description, setDescription] = useState("");
@@ -32,6 +33,7 @@ export default function Form({ onNewTransaction, categories }) {
         className="form"
         onSubmit={(e) => {
           onNewTransaction(e, startDate, description, type, category, amount);
+          handleFormReset();
         }}
         onReset={handleFormReset}
       >
@@ -87,6 +89,7 @@ export default function Form({ onNewTransaction, categories }) {
           <input
             required
             type="number"
+            min="1"
             value={amount}
             onChange={(e) => setAmount(Number(e.target.value))}
           />
@@ -97,6 +100,9 @@ export default function Form({ onNewTransaction, categories }) {
           </button>
           <button className="btn" type="reset">
             <FontAwesomeIcon icon={faXmark} /> Reset
+          </button>
+          <button className="btn" onClick={onShowForm}>
+            <FontAwesomeIcon icon={faArrowsUpToLine} />
           </button>
         </span>
       </form>

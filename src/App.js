@@ -4,6 +4,8 @@ import Header from "./components/Header";
 import Form from "./components/Form";
 import CreateAccount from "./components/CreateAccount";
 import Main from "./components/Main";
+import Notification from "./components/Notification";
+import data from "./testdata";
 
 const initialUsers = [
   {
@@ -20,35 +22,36 @@ const initialUsers = [
   },
 ];
 
-const initialTransactions = [
-  {
-    id: 1,
-    user: 1,
-    date: "21/12/2022",
-    description: "Gasoline",
-    type: "expense",
-    category: 1,
-    amount: 75,
-  },
-  {
-    id: 2,
-    user: 1,
-    date: "24/12/2022",
-    description: "Shopping",
-    type: "expense",
-    category: 2,
-    amount: 150,
-  },
-  {
-    id: 3,
-    user: 2,
-    date: "15/11/2022",
-    description: "Eco cheque",
-    type: "income",
-    category: 3,
-    amount: 250,
-  },
-];
+const initialTransactions = data;
+//[
+//   {
+//     id: 1,
+//     user: 1,
+//     date: "21/12/2022",
+//     description: "Gasoline",
+//     type: "expense",
+//     category: 1,
+//     amount: 75,
+//   },
+//   {
+//     id: 2,
+//     user: 1,
+//     date: "24/12/2022",
+//     description: "Shopping",
+//     type: "expense",
+//     category: 2,
+//     amount: 150,
+//   },
+//   {
+//     id: 3,
+//     user: 2,
+//     date: "15/11/2022",
+//     description: "Eco cheque",
+//     type: "income",
+//     category: 3,
+//     amount: 250,
+//   },
+// ];
 
 const initialCategories = [
   { id: 1, name: "house" },
@@ -57,6 +60,9 @@ const initialCategories = [
   { id: 4, name: "gas" },
   { id: 5, name: "electricity" },
   { id: 6, name: "shopping" },
+  { id: 7, name: "loan" },
+  { id: 8, name: "paycheck" },
+  { id: 9, name: "presents" },
 ];
 
 export default function App() {
@@ -67,6 +73,7 @@ export default function App() {
   const [categories, setCategories] = useState(initialCategories);
   const [showCategories, setShowCategories] = useState(false);
   const [showForm, setShowForm] = useState(false);
+  const [notification, setNotification] = useState("");
 
   function handleLogin(e, login, password) {
     e.preventDefault();
@@ -105,6 +112,7 @@ export default function App() {
     setUser(0);
     setShowForm(false);
     setShowCategories(false);
+    setNotification("");
   }
 
   function handleShowForm() {
@@ -119,7 +127,8 @@ export default function App() {
   function handleNewtransaction(e, date, description, type, category, amount) {
     e.preventDefault();
 
-    if (!date || description === "" || !amount) return;
+    if (!date || description === "" || !amount)
+      return handleSetNotification("Amount needs to be different from zero.");
 
     const newTransaction = {
       id: transactions.length + 1,
@@ -140,7 +149,7 @@ export default function App() {
     );
 
     if (transactionsFromCategory.length > 0)
-      return alert(
+      return handleSetNotification(
         "There are transactions with this category, you can not delete this"
       );
 
@@ -161,6 +170,14 @@ export default function App() {
     });
 
     setCategories(newCategoriesList);
+  }
+
+  function handleSetNotification(message) {
+    setNotification(message);
+  }
+
+  function handleCloseNotification() {
+    setNotification("");
   }
 
   return (
@@ -189,6 +206,15 @@ export default function App() {
             <Form
               onNewTransaction={handleNewtransaction}
               categories={categories}
+              onShowForm={handleShowForm}
+            />
+          ) : (
+            ""
+          )}
+          {notification !== "" ? (
+            <Notification
+              onCloseNotification={handleCloseNotification}
+              notification={notification}
             />
           ) : (
             ""

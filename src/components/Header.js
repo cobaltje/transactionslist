@@ -15,7 +15,6 @@ export default function Header({
   return (
     <div className="topbar">
       <nav>
-        <span>Transactions</span>
         <span>
           <FontAwesomeIcon
             icon={faFaceSmile}
@@ -23,7 +22,7 @@ export default function Header({
             size="lg"
             style={{ color: "#1454c2" }}
           />
-          Welcome {user.name}
+          <span> Welcome {user.name}</span>
         </span>
         <menu>
           <button

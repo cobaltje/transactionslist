@@ -9,6 +9,10 @@ body {
   background-color: #172554;
 }
 
+h1 {
+  margin-bottom: 15px;
+}
+
 /* Login box */
 .loginbox {
   background-color: #ffffff;
@@ -112,7 +116,7 @@ menu {
 
 .content {
   background-color: #fff;
-  width: 800px;
+  width: 1000px;
   padding: 10px;
   border-radius: 10px;
 }
@@ -121,17 +125,6 @@ menu {
 .sidebar {
   background-color: #e0f2fe;
   width: 350px;
-}
-
-/* Table */
-table {
-  width: 100%;
-}
-
-th {
-  background-color: #172554;
-  color: #fff;
-  border-radius: 5px;
 }
 
 /* Form */
@@ -159,14 +152,10 @@ th {
   border-radius: 5px;
 }
 
-.form span:hover {
-  background-color: #172554;
-  color: #e0f2fe;
-}
-
 .form input,
 .form select {
   border: none;
+  cursor: pointer;
 }
 
 .form-btn-group {
@@ -176,7 +165,7 @@ th {
 /* Categories */
 .category {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   row-gap: 5px;
   column-gap: 5px;
 }
@@ -197,6 +186,51 @@ th {
   color: #e0f2fe;
 }
 
+.category-actions {
+  display: flex;
+  gap: 5px;
+}
+
 .category-actions:hover {
   cursor: pointer;
+}
+
+/* Error */
+.error {
+  background-color: #ec290b;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.erroricon {
+  cursor: pointer;
+}
+
+/* Table */
+
+table {
+  width: 100%;
+  background-color: #ffffff;
+  border-collapse: collapse;
+  border-width: 0px;
+  border-color: #7ea8f8;
+  border-style: solid;
+  color: #000000;
+}
+
+table td,
+table th {
+  border-width: 0px;
+  border-color: #7ea8f8;
+  border-style: solid;
+  padding: 10px;
+  text-align: center;
+}
+
+table thead {
+  background-color: #b2d5ec;
 }

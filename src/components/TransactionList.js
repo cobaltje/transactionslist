@@ -1,5 +1,9 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowUp, faArrowDown } from "@fortawesome/free-solid-svg-icons";
+
 export default function TransactionList({ transactions, categories }) {
   const categoriesList = [...categories];
+
   return (
     <table>
       <thead>
@@ -44,7 +48,15 @@ function Transaction({
       <td>{description}</td>
       <td>{type}</td>
       <td>{currentCategory.name}</td>
-      <td>{amount}</td>
+      {type === "expense" ? (
+        <td style={{ backgroundColor: "#f7b7b7" }}>
+          <FontAwesomeIcon icon={faArrowDown} /> {amount}
+        </td>
+      ) : (
+        <td style={{ backgroundColor: "#b7f7bf" }}>
+          <FontAwesomeIcon icon={faArrowUp} /> {amount}
+        </td>
+      )}
     </tr>
   );
 }
