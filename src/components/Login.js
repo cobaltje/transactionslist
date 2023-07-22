@@ -12,7 +12,7 @@ export default function Login({ onLogin, onViewCreateAccount }) {
         <FontAwesomeIcon icon={faUser} />
         <span> Login</span>
       </h1>
-      <form onSubmit={(e) => onLogin(e, login, password)}>
+      <form onSubmit={(e) => onLogin(e, login.toLowerCase(), password)}>
         <label>
           <FontAwesomeIcon icon={faUser} />
           <span> Login</span>

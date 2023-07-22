@@ -16,7 +16,7 @@ export default function AddCategory({
     <div className="category-form">
       <form
         onSubmit={(e) => {
-          onAddNewCategory(e, categoryName);
+          onAddNewCategory(e, categoryName.trim());
           handleFormReset();
         }}
       >
@@ -24,6 +24,7 @@ export default function AddCategory({
           type="text"
           value={categoryName}
           onChange={(e) => setCategoryName(e.target.value)}
+          required
         />
         <button className="btn" type="submit">
           <FontAwesomeIcon icon={faCheck} /> Submit

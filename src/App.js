@@ -6,6 +6,7 @@ import CreateAccount from "./components/CreateAccount";
 import Main from "./components/Main";
 import Notification from "./components/Notification";
 import data from "./testdata";
+import { getCategories } from "./model";
 
 const initialUsers = [
   {
@@ -127,12 +128,18 @@ export default function App() {
   function handleNewCategory(e, categoryname) {
     e.preventDefault();
 
+    if (categoryname.trim() === "")
+      return handleSetNotification("Categoryname can't be empty!");
+    if (categories.find((cat) => cat.name === categoryname))
+      return handleSetNotification("Categoryname already exist!");
+
     const newCategory = {
-      id: categories.length + 1,
+      id: Math.max(...categories.map((x) => x.id)) + 1,
       name: categoryname,
     };
 
     setCategories((categories) => [...categories, newCategory]);
+    console.log(categories);
   }
 
   function handleNewtransaction(e, date, description, type, category, amount) {
@@ -155,7 +162,7 @@ export default function App() {
   }
 
   function handleDeleteCategories(id) {
-    const transactionsFromCategory = initialTransactions.filter(
+    const transactionsFromCategory = transactions.filter(
       (transaction) => transaction.category === id
     );
 

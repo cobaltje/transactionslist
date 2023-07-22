@@ -21,7 +21,9 @@ export default function CreateAccount({
         <FontAwesomeIcon icon={faUserPlus} /> <span> Create new account</span>
       </h1>
       <form
-        onSubmit={(e) => onCreateAccount(e, newLogin, newPassword, newName)}
+        onSubmit={(e) =>
+          onCreateAccount(e, newLogin.toLowerCase(), newPassword, newName)
+        }
       >
         <label>
           <FontAwesomeIcon icon={faSignature} />

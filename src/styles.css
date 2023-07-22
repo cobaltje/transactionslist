@@ -251,3 +251,15 @@ table th {
 table thead {
   background-color: #b2d5ec;
 }
+
+/* Mobile */
+
+@media only screen and (max-width: 570px) {
+  /* Buttons */
+  .btn {
+  }
+
+  nav {
+    display: block;
+  }
+}
